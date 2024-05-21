@@ -46,15 +46,7 @@
                                                             alt="Tidak Dapat Memuat Gambar" />
                                                     </a>
                                                 </div>
-                                                <div class="item">
-                                                    <a class="image-popup-no-margins"
-                                                        href="{{ url("public/$kalender->foto2") }}">
-                                                        <img class="img-responsive"
-                                                            style="width:100% ; height:50%; object-fit: cover"
-                                                            src="{{ url("public/$kalender->foto2") }}"
-                                                            alt="Tidak Dapat Memuat Gambar" />
-                                                    </a>
-                                                </div>
+
                                             </div>
                                         </div>
 

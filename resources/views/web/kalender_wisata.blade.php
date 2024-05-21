@@ -46,7 +46,7 @@
                                                 data-target="#Kalender{{ $kalender_wisata->id }}"> --}}
                                                 <h6 style="font-size: 14px; text-transform: capitalize;">
                                                     {{ $kalender_wisata->nama }}
-                                                    <i class="icofont-travelling" style="color: #4557ff"></i> <span
+                                                    <i class="icofont-travelling" style="color: #1cc49f"></i> <span
                                                         style="display:block; position:relative; "></span>
                                                 </h6>
                                             </a>

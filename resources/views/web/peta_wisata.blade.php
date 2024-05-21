@@ -49,7 +49,6 @@
             </div>
     </section>
 
-
     @push('script')
         <script>
             let latitude = -1.8572961278636353
@@ -71,12 +70,12 @@
             const greenIcon = new LeafIcon({
                 iconUrl: 'https://jadesta.kemenparekraf.go.id/images/merah.png'
             })
-            const orangeIcon = new LeafIcon({
-                iconUrl: 'https://jadesta.kemenparekraf.go.id/images/kota.png'
-            });
             const redIcon = new LeafIcon({
                 iconUrl: 'https://jadesta.kemenparekraf.go.id/images/desa.png'
             })
+            const orangeIcon = new LeafIcon({
+                iconUrl: 'https://jadesta.kemenparekraf.go.id/images/kota.png'
+            });
 
 
             const grayscaled_map = L.tileLayer(
@@ -127,21 +126,22 @@
                 dest_long
             }) => {
                 return `
-                <h5 class="text-center">${nama}</h5>
-                <img src="${foto}"/>
-                <h6 class="text-center" >${deskripsi}</h6>
-                <br><br>
-                <button class="btn btn-info">
-                    <a href="${link_jadesta}" target="_blank" style="color: white">
-                        <i class="icofont-look"></i> Lihat Detail
+            <h5 class="text-center">${nama}</h5>
+            <img src="${foto}"/>
+            <h6 class="text-center" >${deskripsi}</h6>
+            <br><br>
+            <button class="btn btn-info">
+                <a href="${link_jadesta}" target="_blank" style="color: white">
+                    <i class="icofont-look"></i> Lihat Detail
+                </a>
+            </button>
+            
+            <button class='btn btn-info'>
+                <a href='https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=${dest_lat},${dest_long}' target='_blank'  style='color: white'>
+                    <i class='icofont-location-arrow'></i> Rute
                     </a>
-                </button>
-                <button class='btn btn-info'>
-                    <a href='https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=${dest_lat},${dest_long}' target='_blank'  style='color: white'>
-                        <i class='icofont-location-arrow'></i> Rute
-                        </a>
-                </button>
-                `
+            </button>
+            `
             }
 
             @foreach ($list_desa_wisata as $wisata)
@@ -160,32 +160,19 @@
 
             @foreach ($list_atraksi_wisata as $wisata)
                 data = {
-                    nama: `{{ $wisata->nama_atraksi_wisata }}`,
-                    foto: `{{ url("public/$wisata->foto") }}`,
-                    deskripsi: `{{ $wisata->deskripsi }}`,
-                    link_jadesta: `{{ $wisata->link_jadesta }}`,
-                    dest_lat: `{{ $wisata->lat }}`,
-                    dest_long: `{{ $wisata->lng }}`,
+                    nama: {{ $wisata->nama_atraksi_wisata }},
+                    foto: {{ url("public/$wisata->foto") }},
+                    deskripsi: {{ $wisata->deskripsi }},
+                    link_jadesta: {{ $wisata->link_jadesta }},
+                    dest_lat: {{ $wisata->lat }},
+                    dest_long: {{ $wisata->lng }},
                 }
                 L.marker([data.dest_lat, data.dest_long], {
                     icon: orangeIcon
                 }).addTo(map).bindPopup(generatePopup(data))
             @endforeach
 
-            @foreach ($list_fasilitas as $wisata)
-                data = {
-                    nama: '{{ $wisata->nama_fasilitas }}',
-                    foto: '{{ url("public/$wisata->foto") }}',
-                    deskripsi: '{{ $wisata->deskripsi }}',
-                    link_jadesta: '{{ $wisata->link_jadesta }}',
-                    dest_lat: '{{ $wisata->lat }}',
-                    dest_long: '{{ $wisata->lng }}',
-                }
-                L.marker([data.dest_lat, data.dest_long], {
-                    icon: redIcon
-                }).addTo(map).bindPopup(generatePopup(data))
-            @endforeach
-
+           
 
             L.control.locate().addTo(map);
         </script>

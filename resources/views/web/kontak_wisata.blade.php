@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-md-8 centerize-col text-center mt-50">
                     <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                        <h2 class="raleway-font"><span class="font-100">Penanggung Jawab Project</span></h2>
+                        <h2 class="raleway-font"><span class="font-100">Kontak</span></h2>
                         <hr class="center_line dark-bg">
                     </div>
                 </div>
