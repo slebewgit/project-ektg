@@ -12,6 +12,10 @@
                     <form action="{{ url('admin/atraksi-wisata') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
+
+
+
+                            
                             <label class="col-sm-2 col-form-label text-left">Kategori</label>
                             <div class="col-sm-4">
                                 <select class="form-control" name="id_kategori">
